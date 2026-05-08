@@ -1,0 +1,158 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: linear-gradient(160deg, #0a3d62 0%, #1e8449 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  font-family: 'Segoe UI', sans-serif;
+  overflow: hidden;
+}
+
+/* ── ANIMATIONS ── */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── MENU SCREEN ── */
+#menuScreen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 22px;
+  animation: fadeIn .5s ease;
+}
+
+#menuScreen h1 {
+  font-size: 3rem;
+  color: #fff;
+  text-shadow: 0 0 20px #52e3a0, 0 2px 8px rgba(0,0,0,0.4);
+  letter-spacing: 3px;
+}
+
+#menuScreen p {
+  color: #b2dfdb;
+  font-size: 1rem;
+  text-align: center;
+}
+
+/* ── LEVEL GRID ── */
+.level-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 14px;
+}
+
+.level-card {
+  background: rgba(255,255,255,0.08);
+  border: 2px solid rgba(255,255,255,0.18);
+  border-radius: 16px;
+  padding: 18px 14px;
+  text-align: center;
+  cursor: pointer;
+  transition: transform .15s, background .15s, box-shadow .15s;
+  color: #fff;
+  min-width: 120px;
+}
+
+.level-card:hover {
+  transform: translateY(-6px) scale(1.04);
+  background: rgba(255,255,255,0.18);
+  box-shadow: 0 8px 30px rgba(82,227,160,0.35);
+}
+
+.level-card .lv-num   { font-size: 1.8rem; font-weight: bold; margin-bottom: 6px; }
+.level-card .lv-name  { font-size: .85rem; font-weight: bold; margin-bottom: 4px; }
+.level-card .lv-desc  { font-size: .72rem; color: #b2dfdb; margin-bottom: 8px; line-height: 1.4; }
+.level-card .lv-stars { font-size: 1rem; letter-spacing: 2px; }
+
+.lv1 { border-color: #52e3a0; }
+.lv2 { border-color: #f9ca24; }
+.lv3 { border-color: #e17055; }
+.lv4 { border-color: #a29bfe; }
+.lv5 { border-color: #fd79a8; }
+
+/* ── GAME SCREEN ── */
+#gameScreen {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+#hud {
+  display: flex;
+  gap: 36px;
+  color: #fff;
+  font-size: 1rem;
+  background: rgba(0,0,0,0.25);
+  padding: 6px 24px;
+  border-radius: 30px;
+}
+
+#hud span { font-weight: bold; }
+
+#level-badge {
+  background: linear-gradient(135deg, #52e3a0, #0a3d62);
+  padding: 2px 14px;
+  border-radius: 20px;
+  color: #fff;
+  font-weight: bold;
+}
+
+#lives { color: #ff6fd8; }
+
+#gameCanvas {
+  border-radius: 16px;
+  box-shadow: 0 0 40px rgba(82,227,160,0.4);
+  display: block;
+}
+
+/* ── OVERLAY ── */
+#overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  color: #fff;
+  text-align: center;
+  z-index: 10;
+  animation: fadeIn .3s ease;
+}
+
+#overlay h2 { font-size: 2.4rem; text-shadow: 0 0 16px #52e3a0; }
+#overlay p  { font-size: 1.05rem; color: #ccc; }
+
+/* ── BUTTONS ── */
+.btn {
+  padding: 12px 36px;
+  font-size: 1.05rem;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: transform .1s, box-shadow .1s;
+}
+
+.btn:hover { transform: scale(1.06); }
+
+.btn-green {
+  background: linear-gradient(135deg, #52e3a0, #0a3d62);
+  color: #fff;
+  box-shadow: 0 4px 20px rgba(82,227,160,0.45);
+}
+
+.btn-red {
+  background: linear-gradient(135deg, #e17055, #c0392b);
+  color: #fff;
+  box-shadow: 0 4px 20px rgba(225,112,85,0.45);
+}
+
+.btn-row { display: flex; gap: 16px; }
